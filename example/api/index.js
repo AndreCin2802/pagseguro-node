@@ -163,6 +163,10 @@ app.get("/authorization/notification", function(req, res) {
 /**
  * Listen
  */
-app.listen(3333, function() {
-  console.log("Example app listening on port 3333!");
+
+const port = process.env.PORT || 3333
+
+app.listen(port, function() {
+  console.log("Example app listening on port" + port);
 });
+

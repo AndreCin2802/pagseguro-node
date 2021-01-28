@@ -4,11 +4,10 @@
 	"author": "André Roberto",
 	"description": "pagseguro nodejs",
 	"license": "MIT",
-	"main": "./lib/index.js,
-	"engines":{
-		"node":"14.5.1"
+	"main": "./lib/index.js",
+	"engines": {
+		"node": "14.15.1"
 	},
-
 	"scripts": {
 		"test": "NODE_ENV=tests jest",
 		"example": "nodemon example/api/index.js",

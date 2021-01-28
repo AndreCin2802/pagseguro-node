@@ -4,22 +4,19 @@
 	"author": "André Roberto",
 	"description": "pagseguro nodejs",
 	"license": "MIT",
-	"main": "./lib/index.js,
-	"engines":{
-		"node":"14.5.1"
+	"main": "./lib/index.js",
+	"engines": {
+		"node": "14.15.1"
 	},
-
 	"scripts": {
-		"test": "NODE_ENV=tests jest",
-		"example": "nodemon example/api/index.js",
+		"start": "nodemon example/api/index.js",
 		"clean": "rimraf lib",
-		"build": "BABEL_ENV=production babel src --out-dir lib",
-		"postversion": "git push && git push --tags && rm -rf build/temp",
-		"prepublish": "npm run clean && npm run test && npm run build"
+		"build": "BABEL_ENV=production babel src --out-dir lib"
 	},
 	"dependencies": {
 		"@babel/runtime": "^7.4.4",
 		"clone": "^2.1.2",
+		"dotenv": "^8.2.0",
 		"fast-xml-parser": "^3.12.5",
 		"ip": "^1.1.5",
 		"request": "^2.88.0",

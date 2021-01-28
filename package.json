@@ -21,7 +21,8 @@
 		"request": "^2.88.0",
 		"request-promise": "^4.2.2",
 		"winston": "^3.1.0",
-		"nodemon": "^1.17.3"
+		"nodemon": "^1.17.3",
+		"express": "^4.16.4"
 	},
 	"devDependencies": {
 		"@babel/cli": "^7.2.3",

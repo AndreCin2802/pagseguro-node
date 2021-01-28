@@ -165,7 +165,7 @@ app.get("/authorization/notification", function(req, res) {
  */
 
 const host = '0.0.0.0';
-const port = process.env.PORT || 3333
+const port = process.env.PORT || 5000
 
 app.listen(port, host, function() {
   console.log("Example app listening on port" + port);

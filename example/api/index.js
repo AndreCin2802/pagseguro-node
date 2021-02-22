@@ -2,6 +2,8 @@ const express = require("express");
 const pagseguro = require("../../src");
 const config = require("../config_sample");
 const bodyParser = require("body-parser");
+const { default: axios } = require("axios");
+const { response } = require("express");
 
 
 /**
@@ -9,6 +11,11 @@ const bodyParser = require("body-parser");
  */
 const app = express();
 
+// urlencoded
+
+app.use(express.urlencoded({
+  extended: true
+}))
 /**
  * Middleware
  */
@@ -160,14 +167,66 @@ app.get("/authorization/notification", function(req, res) {
     });
 });
 
+// Token Card
+
+app.post(`/cardToken`, function(req,response) {
+
+  const {sessionId, amount, cardData} = req.body
+  const params = new URLSearchParams()
+
+  params.append('cardNumber', cardData.cardNumber)
+  params.append('cardBrand', cardData.cardBrand)
+  params.append('cardCvv', cardData.cardCvv)
+  params.append('cardExpirationMonth', cardData.cardExpirationMonth)
+  params.append('cardExpirationYear', cardData.cardExpirationYear)
+
+  const config = {
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    }
+  }
+
+   axios.post(
+  `https://df.uol.com.br/v2/cards?sessionId=${sessionId}&amount=${amount}`,
+  params,
+  config)
+  .then(res => {
+
+    return response.status(201).send(res.data)
+  })
+  .catch(err => {
+
+    return response.status(400).send(err)
+  })
+
+
+
+
+
+
+}
+)
+
+app.get('/cardBrand', function(req,response) {
+  const {sessionId, cardBin6Dig} = req.body
+
+
+  axios.get
+  (`https://df.uol.com.br/df-fe/mvc/creditcard/v1/getBin?tk=${sessionId}&creditCard=${cardBin6Dig}`)
+  .then(res => {
+    return response.status(201).send(res.data)
+  })
+  .catch(err => {
+    console.log(err.response.data)
+    return response.status(400).send(err.response.data)
+  })
+
+})
+
 /**
  * Listen
  */
-
-const host = '0.0.0.0';
-const port = process.env.PORT || 5000
-
-app.listen(port, host, function() {
-  console.log("Example app listening on port" + port);
+const host = '0.0.0.0'
+app.listen(3333,host, function() {
+  console.log("Example app listening on port 3333!");
 });
-

@@ -48,7 +48,7 @@ app.get("/", function(req, res) {
 /**
  * Session
  */
-app.post("/session", function(req, res) {
+app.get("/session", function(req, res) {
   client.session
     .get()
     .then(data => res.status(data.statusCode).json(data))
@@ -207,7 +207,7 @@ app.post(`/cardToken`, function(req,response) {
 }
 )
 
-app.get('/cardBrand', function(req,response) {
+app.post('/cardBrand', function(req,response) {
   const {sessionId, cardBin6Dig} = req.body
 
 

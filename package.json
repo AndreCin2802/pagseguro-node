@@ -16,6 +16,7 @@
 		"@babel/runtime": "^7.4.4",
 		"clone": "^2.1.2",
 		"dotenv": "^8.2.0",
+		"axios": "^0.21.1",
 		"fast-xml-parser": "^3.12.5",
 		"ip": "^1.1.5",
 		"request": "^2.88.0",

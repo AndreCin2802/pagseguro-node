@@ -2,7 +2,6 @@
 
 Aplicação em desenvolvimento. Recursos básicos para integração com checkout transparente finalizados. **Em breve documentação.**
 
-Veja também: ([Pagseguro + ReactJS](https://github.com/wchagas/pagseguro-react))
 
 ## Checklist
 - [x] Iniciar sessão
@@ -37,13 +36,4 @@ npm run test
 ```
 
 
-***
 
-#### License
-Copyright (c) 2019 Willy Chagas
-Licensed under the [MIT license](LICENSE).
-
-
-***
-
-Project created by [Willy Chagas](https://atah.com.br).
